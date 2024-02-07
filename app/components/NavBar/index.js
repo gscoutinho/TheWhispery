@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import React, { useState } from 'react'
+import { GiBowman } from "react-icons/gi";
+
 
 
 
@@ -34,8 +36,10 @@ export default function NavBar() {
     const updateCurrentPage = (newPage) => setCurrentPage(newPage)
 
     return (
-        <header className='flex mt-1 p-2 justify-between'>
-            <div className='text-lg'>Gabriel Coutinho.dev</div>
+        <header className='sm:flex justify-between justify-self-center content-center mt-2 p-2 px-5 bg-sky-50/90 rounded-4xl shadow-xl w-1/2
+        fixed left-1/4 top-0 hidden
+        '>
+            <GiBowman size={30}/>
 
             <nav>
                 <ul className='flex mx-2'>
@@ -44,7 +48,7 @@ export default function NavBar() {
                             return (
                                 <li key={item.label} 
                                 
-                                className={`ml-4 p-1 hover:cursor-pointer ${item.label === currentPage ? 'underline decoration-2' : ''}`}>
+                                className={`ml-4 p-2 rounded-lg hover:cursor-pointer hover:bg-lime-200 ${item.label === currentPage ? 'bg-lime-300' : ''}`}>
                                     <Link href={item.href}
                                     onClick={() => updateCurrentPage(item.label)}
                                     >

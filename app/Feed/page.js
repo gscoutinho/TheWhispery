@@ -1,7 +1,12 @@
 import React from 'react'
+import SectionCard from '../components/SectionCard'
 
 export default function Feed() {
   return (
-    <div>FeedPage</div>
+    <>
+<SectionCard>
+  <div>Feed!!</div>
+</SectionCard>
+    </>
   )
 }
