@@ -1,0 +1,16 @@
+{
+    "data_page": {
+        "resume": {
+            "photo": "/resume.png",
+            "author_name": "Gabriel Coutinho",
+            "author_role": "SCADA & Software Engineer",
+            "interested_fields": [
+                "Renewable Energies",
+                "SCADA Systems",
+                "Software Engineering",
+                "Data Science"
+            ],
+            "description": "Expertise in renewable energy projects and industrial automation systems. With a focus on high-performance SCADA systems and software development, I've led projects from inception to deployment, specializing in wind, solar, and hybrid energy plants. For now, I'm focusing in Software Development."
+        }
+    }
+}

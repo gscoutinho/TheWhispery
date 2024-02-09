@@ -3,8 +3,7 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { GiBowman } from "react-icons/gi";
-
-
+import { motion } from 'framer-motion';
 
 
 const NAV_ITENS = [
@@ -23,7 +22,7 @@ const NAV_ITENS = [
     {
         label: "About me",
         description: "About me",
-        href: '/about',
+        href: '/About',
         icon: '', // for mobile layout
     }
 ]
@@ -36,30 +35,39 @@ export default function NavBar() {
     const updateCurrentPage = (newPage) => setCurrentPage(newPage)
 
     return (
-        <header className='sm:flex justify-between justify-self-center content-center mt-2 p-2 px-5 bg-sky-50/90 rounded-4xl shadow-xl w-1/2
-        fixed left-1/4 top-0 hidden
-        '>
-            <GiBowman size={30}/>
+        <motion.header className='sm:flex justify-between justify-self-center content-center mt-2 p-2 px-5 bg-zinc-50/90 rounded-4xl shadow-xl w-1/2
+        fixed left-1/4 top-0 hidden'
+            initial={{ y: -100, x: "0%", opacity: 0 }}
+            animate={{ y: 0, x: "0%", opacity: 1 }}
+            transition={{duration: 0.2}}
+        >
+
+            <GiBowman size={30} />
 
             <nav>
                 <ul className='flex mx-2'>
                     {
                         NAV_ITENS.map(item => {
                             return (
-                                <li key={item.label} 
-                                
-                                className={`ml-4 p-2 rounded-lg hover:cursor-pointer hover:bg-lime-200 ${item.label === currentPage ? 'bg-lime-300' : ''}`}>
+                                <motion.li key={item.label}
+
+                                    className={`ml-4 p-2 rounded-lg hover:cursor-pointer hover:bg-lime-200 ${item.label === currentPage ? 'bg-lime-300' : ''}`}
+
+                                    initial={{ y: -100, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                >
                                     <Link href={item.href}
-                                    onClick={() => updateCurrentPage(item.label)}
+                                        onClick={() => updateCurrentPage(item.label)}
                                     >
                                         {item.label}
                                     </Link>
-                                </li>
+                                </motion.li>
                             )
                         })
                     }
                 </ul>
             </nav>
-        </header>
+
+        </motion.header>
     )
 }
